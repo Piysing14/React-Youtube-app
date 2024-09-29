@@ -1,5 +1,5 @@
 import "./Video.css";
-function Video({ title="My first vlog", channel="Piyush khati", views="300k", time="3 years ago" ,isVerified=false, id}) {
+function Video({ title="My first vlog", channel="Piyush khati", views="300k", time="3 years ago" ,isVerified=false, id,children}) {
 
 
   return (
@@ -17,6 +17,7 @@ function Video({ title="My first vlog", channel="Piyush khati", views="300k", ti
           {views} views <span>. </span>
           {time}
         </div>
+        {children}
       </div>
     </>
   );
