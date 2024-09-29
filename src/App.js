@@ -1,26 +1,21 @@
-import './App.css';
-
+import "./App.css";
+import Video from "./components/Video";
+import videos from "./data/data";
 function App() {
-  let name='react app'
-  console.log("App");
   return (
     <div className="App">
-      <div className='App-header'>
-        {name}
-        <Demo></Demo>
-      </div>
-    </div>
-  );
-}
-
-function Demo() {
-  console.log("Demo");
-
-  return (
-    <div className="Demo">
-      <div className='Demo-header'>
-        Demo
-      </div>
+      <div> Videos</div>
+      {videos.map((video) => (
+        <Video
+          key={video.id}
+          title={video.title}
+          channel={video.channel}
+          views={video.views}
+          time={video.time}
+          isVerified={video.isVerified}
+          id={video.id}
+        ></Video>
+      ))}
     </div>
   );
 }
