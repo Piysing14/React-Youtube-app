@@ -1,17 +1,17 @@
-import { Children } from "react";
+import { Children, useState } from "react";
 import "./PlayButton.css";
 function PlayButton({ message, children, onSmash, onPlay, onPause }) {
-    let play = false;
+    const [play,setPlay]=useState(false);
   function handleClick(e) {
     e.stopPropagation();
     // onSmash();
     if (play) onPause();
     else onPlay();
-    play=!play;
+    setPlay(!play);
   }
   return (
     <>
-      <button onClick={handleClick}>{children}: {play ? ">":"||"}</button>
+      <button onClick={handleClick}>{children}: {play ? "⏸️": "▶️"}</button>
     </>
   );
 }
