@@ -1,15 +1,15 @@
 import "./App.css";
 import Video from "./components/Video";
-import videos from "./data/data";
+import videoDB from "./data/data";
 import PlayButton from "./components/PlayButton";
 import Counter from "./components/counter";
 import { Children, useState } from "react";
 
 function App() {
-  const [video, setVideo] = useState(videos);
+  const [videos, setVideos] = useState(videoDB);
   function handleClick(e) {
     e.stopPropagation();
-    setVideo([
+    setVideos([
       ...videos,
       {
         title: "Learn JavaScript Basics",
@@ -17,7 +17,7 @@ function App() {
         views: "200k",
         time: "5 days ago",
         isVerified: true,
-        id: video.length + 1,
+        id: videos.length + 1,
       },
     ]);
   }
