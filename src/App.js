@@ -3,28 +3,21 @@ import Video from "./components/Video";
 import videoDB from "./data/data";
 import PlayButton from "./components/PlayButton";
 import Counter from "./components/counter";
+import AddVideo from "./components/AddVideo"
 import { Children, useState } from "react";
 
 function App() {
   const [videos, setVideos] = useState(videoDB);
-  function handleClick(e) {
-    e.stopPropagation();
+  function addVideos(video){
     setVideos([
-      ...videos,
-      {
-        title: "Learn JavaScript Basics",
-        channel: "Code Academy",
-        views: "200k",
-        time: "5 days ago",
-        isVerified: true,
-        id: videos.length + 1,
-      },
-    ]);
+        ...videos,
+        {...video, id: videos.length + 1}
+      ]);
   }
   return (
     <div className="App">
       <div>
-        <button onClick={handleClick}>Add video</button>
+       <AddVideo addVideos={addVideos}></AddVideo>
       </div>
       {videos.map((video) => (
         <Video
@@ -45,11 +38,7 @@ function App() {
         </Video>
       ))}
       <div style={{ clear: "both" }}>
-        {/* <PlayButton message="Play-msg" onSmash={()=>console.log("Play")} >Play</PlayButton>
-      <PlayButton message="Pause-msg" onSmash={()=>console.log("Pause")}>Pause</PlayButton> */}
-        {/* <PlayButton onPlay={()=>console.log("Play")} onPause={()=>console.log("Pause")} >Play</PlayButton> */}
       </div>
-      <Counter></Counter>
     </div>
   );
 }
