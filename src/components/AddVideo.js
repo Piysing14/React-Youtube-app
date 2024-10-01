@@ -19,8 +19,6 @@ function AddVideo({ addVideos }) {
     event.stopPropagation();
     let name = event.target.name;
     let value = event.target.value;
-
-    console.log(name, value);
     setVideo({ ...video, [name]: value });
   }
   return (

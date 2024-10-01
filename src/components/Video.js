@@ -1,10 +1,11 @@
 import "./Video.css";
-function Video({ title="My first vlog", channel="Piyush khati", views="300k", time="3 years ago" ,isVerified=false, id,children}) {
+function Video({ title="My first vlog", channel="Piyush khati", views="300k", time="3 years ago" ,isVerified=false, id,children,deleteVideo}) {
 
 
   return (
     <>
       <div className="container">
+        <button className="close" onClick={()=>deleteVideo(id)}>❌</button>
         <div className="pic">
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
